@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Spliterator;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -89,6 +90,8 @@ public class ArrayListClass {
         while (spliterator.tryAdvance(e -> System.out.print(e + " "))) {
         }
         System.out.println();
-        System.out.println(spliterator.characteristics()); 
+        System.out.println(spliterator.characteristics());
+      
+        System.out.println(lists.stream().distinct().collect(Collectors.toList()));
     }
 }

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LInkedListClass { 
 
@@ -17,7 +18,11 @@ public class LInkedListClass {
         System.out.println(list3);
         LinkedList<Integer> linkedList = new LinkedList<>(Arrays.asList(4,0,-4,1));
         LinkedList<Integer> linkedListClone = (LinkedList<Integer>) linkedList.clone();
-        System.out.println( linkedList.equals(linkedListClone) + " " + linkedListClone); // true
+        System.out.println(linkedList.equals(linkedListClone) + " " + linkedListClone); // true
+        List<String> list4 = new LinkedList<>(list3.subList(1, list3.size()));
+        System.out.println(list3.removeAll(list4));
+        System.out.println(list3); 
+        System.out.println(list4);
         
         // Manipulation
         // Add for polymorphic variables and instance variables
@@ -87,6 +92,8 @@ public class LInkedListClass {
         System.out.println(list);
         isRemoved = list.retainAll(linkedListClone);
         System.out.println(list);
+        System.out.println(list.stream().distinct().collect(Collectors.toList()));
+        
 
         // Iterate
         Iterator<Integer> iterator = linkedListClone.iterator();
