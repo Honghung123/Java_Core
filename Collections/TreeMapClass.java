@@ -1,11 +1,16 @@
 package com.honghung.Collections;
 
+import java.time.Month;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class TreeMapClass {
     public static void main(String[] args) {
         // Declaration and add
+        Map<Month, String> maps = new TreeMap<Month, String>();
+        maps.put(Month.FEBRUARY, "January");
+        System.out.println(maps);
+        
         Map<Integer, String> map = new TreeMap<Integer, String>();
         map.put(100, "Amit");
         map.put(102, "Ravi");
