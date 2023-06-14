@@ -8,6 +8,29 @@ interface SumInterface<T> {
     public T sum(T a, T b);
 }
 
+abstract class Base { 
+
+    Base() {
+    } 
+    public abstract void getInfo();
+}
+
+class Derived1 extends Base {
+    @Override
+    public void getInfo() {
+        System.out.println("Name: Random Name for Derived1");
+        System.out.println("This is derived class 1");
+    }
+}
+
+class Derived2 extends Base {
+    @Override
+    public void getInfo() {
+        System.out.println("Name: Random Name for Derived2");
+        System.out.println("This is derived class 2");
+    }
+}
+
 public class varKeyword {
     // var can not be used to declare fields at class level
     //private var Name;
@@ -25,7 +48,12 @@ public class varKeyword {
         return str1 + " " + str2;
     }
 
+    public void instanceMethod() {
+        System.out.println("This is an instance method");
+    } 
+
     public static void main(String[] args) {
+        System.out.println("By using var as type, we are telling Java to figure out the compile-time type for us");
         var varInt = 10;
         System.out.println("Use var to declare an Integer: " + varInt);
         System.out.println(Integer.class.isInstance(varInt)); // Check for primitive types
@@ -58,5 +86,15 @@ public class varKeyword {
         sumInterface = (var a, var b) -> a + " " + b;
         System.out.println(sumInterface.sum("Huy", "Hoang"));
 
+        var object = new varKeyword();
+        object.instanceMethod();
+
+        // var baseClass = Base.class.cast();
+        // baseClass = new Derived1();
+        // System.out.println(baseClass.getClass());
+        // baseClass.getInfo();
+        // baseClass = new Derived2();
+        // System.out.println(baseClass.getClass());
+        // baseClass.getInfo();
     }
 }
